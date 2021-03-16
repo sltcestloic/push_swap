@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 14:40:58 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/16 16:44:17 by lbertran         ###   ########lyon.fr   */
+/*   Created: 2021/03/16 16:36:41 by lbertran          #+#    #+#             */
+/*   Updated: 2021/03/16 16:46:16 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../includes/push_swap.h"
 
-# include <stdio.h>
-# include "../libft/libft.h"
-
-
-typedef struct	s_stack
+void	print_error(char *message)
 {
-	int			capacity;
-	int			head;
-	int			*content;
-}				t_stack;
+	ft_putstr_fd(message, 1);
+}
 
-
-void	exit_error(char *message);
-void	print_error(char *message);
-
-
-#endif
+void	exit_error(char *message)
+{
+	print_error(message);
+	exit(EXIT_FAILURE);
+}

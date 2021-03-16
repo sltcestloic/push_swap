@@ -6,11 +6,12 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/03/16 15:03:26 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/03/16 16:41:22 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= main.c
+SRC		= main.c \
+			stack/stack.c
 OBJS	= ${SRC:.c=.o}
 INCS	= includes
 NAME	= push_swap
@@ -23,7 +24,7 @@ CFLAGS	= -Wall -Wextra -Werror -g3 -O3
 	${CC} ${CFLAGS} -c $< -o $@ -I${INCS}
 
 ${NAME}: ${OBJS}
-	${CC} -o ${NAME} ${OBJS} ../../libft/libft.a
+	${CC} -o ${NAME} ${OBJS} ../../libft/libft.a ../common/common.a
 	
 all: ${NAME}
 

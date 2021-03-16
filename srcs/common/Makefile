@@ -6,14 +6,14 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/03/16 16:36:26 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/03/16 16:40:17 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= main.c
+SRC		= error.c
 OBJS	= ${SRC:.c=.o}
 INCS	= includes
-NAME	= checker
+NAME	= common.a
 LIBC	= ar rcs
 CC		= gcc
 RM		= rm -f
@@ -23,7 +23,7 @@ CFLAGS	= -Wall -Wextra -Werror -g3 -O3
 	${CC} ${CFLAGS} -c $< -o $@ -I${INCS}
 
 ${NAME}: ${OBJS}
-	${CC} -o ${NAME} ${OBJS} ../../libft/libft.a ../common/common.a
+	@${LIBC} ${NAME} ${OBJS}
 	
 all: ${NAME}
 
