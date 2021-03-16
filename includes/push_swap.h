@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:58 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/16 16:44:17 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/16 16:55:34 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,12 @@ typedef struct	s_stack
 void	exit_error(char *message);
 void	print_error(char *message);
 
+t_stack	*new_stack(int capacity);
+int		stack_size(t_stack *stack);
+int		is_full(t_stack *stack);
+int		is_empty(t_stack *stack);
+void	stack_push(t_stack *stack, int val);
+int		stack_peek(t_stack *stack);
+int		stack_pop(t_stack *stack);
 
 #endif
