@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 19:59:28 by lbertran          #+#    #+#             */
-/*   Updated: 2021/01/13 10:18:11 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:36:37 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 #  define BUFFER_SIZE 4096
 # endif
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;

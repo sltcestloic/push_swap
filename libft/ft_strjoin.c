@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:26:41 by lbertran          #+#    #+#             */
-/*   Updated: 2021/01/13 10:10:08 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:29:02 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	if (!s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
-	if (!(ret = malloc(sizeof(char) * (len + 1))))
+	ret = malloc(sizeof(char) * (len + 1));
+	if (!ret)
 		return (NULL);
 	if (s1)
 	{

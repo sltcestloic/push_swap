@@ -6,13 +6,13 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 16:21:23 by lbertran          #+#    #+#             */
-/*   Updated: 2020/12/22 15:33:36 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:27:44 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		get_w_start(const char *str, char c, int index)
+int	get_w_start(const char *str, char c, int index)
 {
 	int	i;
 
@@ -36,7 +36,8 @@ char	*ft_strrdup(const char *str, int start, int end)
 	int		i;
 
 	i = 0;
-	if (!(ret = malloc(sizeof(char) * (end - start + 2))))
+	ret = malloc(sizeof(char) * (end - start + 2));
+	if (!ret)
 		return (NULL);
 	while (start <= end)
 	{
@@ -61,7 +62,7 @@ void	free_all(char **ret, int size)
 	free(ret);
 }
 
-int		count_words(const char *str, char c)
+int	count_words(const char *str, char c)
 {
 	int	i;
 	int	count;
@@ -83,24 +84,24 @@ char	**ft_split(const char *str, char c)
 	int		i;
 	int		wc;
 
-	i = 0;
+	i = -1;
 	wc = 0;
 	if (!str)
 		return (NULL);
-	if (!(ret = malloc(sizeof(char*) * (count_words(str, c) + 1))))
+	ret = malloc(sizeof(char *) * (count_words(str, c) + 1));
+	if (!ret)
 		return (NULL);
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] != c && (str[i + 1] == c || !str[i + 1]))
 		{
-			if (!(ret[wc] = ft_strrdup(str, get_w_start(str, c, i), i)))
+			ret[wc] = ft_strrdup(str, get_w_start(str, c, i), i);
+			if (!ret[wc++])
 			{
-				free_all(ret, wc);
+				free_all(ret, wc - 1);
 				return (NULL);
 			}
-			wc++;
 		}
-		i++;
 	}
 	ret[wc] = 0;
 	return (ret);

@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:21:02 by lbertran          #+#    #+#             */
-/*   Updated: 2020/12/22 16:06:53 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:22:48 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_itoa(int nbr)
 	nb = nbr;
 	neg = nb < 0;
 	len = ft_intlen(nb);
-	if (!(ret = malloc(sizeof(char) * (len + 1))))
+	ret = malloc(sizeof(char) * (len + 1));
+	if (!ret)
 		return (NULL);
 	ft_bzero(ret, len + 1);
 	if (neg)

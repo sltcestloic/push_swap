@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbertran <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:38:55 by lbertran          #+#    #+#             */
-/*   Updated: 2020/11/26 15:40:06 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:33:38 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_charset(char c, const char *set)
+int	is_charset(char c, const char *set)
 {
 	size_t	i;
 
@@ -24,6 +24,13 @@ int		is_charset(char c, const char *set)
 		i++;
 	}
 	return (0);
+}
+
+static int	get_malloc_size(int i, int j)
+{
+	if (i <= j)
+		return (j - i + 2);
+	return (1);
 }
 
 char	*ft_strtrim(const char *s1, const char *set)
@@ -42,7 +49,8 @@ char	*ft_strtrim(const char *s1, const char *set)
 		i++;
 	while (j && is_charset(s1[j], set))
 		j--;
-	if (!(ret = malloc(sizeof(char) * (i <= j ? j - i + 2 : 1))))
+	ret = malloc(sizeof(char) * get_malloc_size(i, j));
+	if (!ret)
 		return (NULL);
 	while (i < j + 1)
 	{

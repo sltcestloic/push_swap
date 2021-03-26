@@ -6,11 +6,13 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 23:11:26 by lbertran          #+#    #+#             */
-/*   Updated: 2020/11/20 23:12:24 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:35:11 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	return ((c >= 'a' && c <= 'z') ? c - 32 : c);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbertran <lbertran@student.42lyon.f>       +#+  +:+       +#+        */
+/*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:01:18 by lbertran          #+#    #+#             */
-/*   Updated: 2020/11/23 16:17:09 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:25:19 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int nb, int fd)
 {
-	long nbr;
+	long	nbr;
 
 	nbr = nb;
 	if (nbr < 0)

@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 13:56:08 by lbertran          #+#    #+#             */
-/*   Updated: 2020/11/23 16:14:46 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:24:45 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char *array;
-	unsigned char *compare;
+	unsigned char	*array;
+	unsigned char	*compare;
 
 	array = (unsigned char *)s1;
 	compare = (unsigned char *)s2;

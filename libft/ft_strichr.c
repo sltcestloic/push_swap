@@ -6,11 +6,11 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:12:49 by lbertran          #+#    #+#             */
-/*   Updated: 2021/01/13 10:13:01 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:28:50 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strichr(const char *s, int c)
+int	ft_strichr(const char *s, int c)
 {
 	int	i;
 

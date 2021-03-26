@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 14:31:07 by lbertran          #+#    #+#             */
-/*   Updated: 2020/11/22 14:35:40 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:16:56 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	total;
 
 	total = count * size;
-	if (!(array = malloc(total)))
+	array = malloc(total);
+	if (!array)
 		return (NULL);
 	ft_memset(array, 0, total);
 	return (array);

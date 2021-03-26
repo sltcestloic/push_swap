@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 23:12:59 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/26 12:34:47 by lbertran         ###   ########lyon.fr   */
+/*   Created: 2021/03/26 12:09:50 by lbertran          #+#    #+#             */
+/*   Updated: 2021/03/26 12:15:59 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "../../includes/push_swap.h"
+
+void	stack_swap(t_stack *stack)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	int	top;
+	int	prev;
+
+	top = stack_pop(stack);
+	prev = stack_pop(stack);
+	stack_push(stack, top);
+	stack_push(stack, prev);
+}
+
+void	stack_ss(t_stack *stack, t_stack *stack2)
+{
+	stack_swap(stack);
+	stack_swap(stack2);
 }

@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 16:36:05 by lbertran          #+#    #+#             */
-/*   Updated: 2021/01/12 09:57:24 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:35:31 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_uitoa(unsigned long long nbr)
 
 	nb = nbr;
 	len = ft_intlen(nb);
-	if (!(ret = malloc(sizeof(char) * (len + 1))))
+	ret = malloc(sizeof(char) * (len + 1));
+	if (!ret)
 		return (NULL);
 	ft_bzero(ret, len + 1);
 	while (len--)

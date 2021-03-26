@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:10:47 by lbertran          #+#    #+#             */
-/*   Updated: 2021/01/13 10:11:00 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:31:30 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char	*ft_strndup(const char *s, size_t n)
 	size_t	i;
 	char	*ret;
 
-	if (!(ret = malloc(sizeof(char) * (n + 1))))
+	ret = malloc(sizeof(char) * (n + 1));
+	if (!ret)
 		return (NULL);
 	i = 0;
 	while (s[i] && i < n)

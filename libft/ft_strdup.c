@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 14:37:10 by lbertran          #+#    #+#             */
-/*   Updated: 2020/11/23 16:18:01 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:28:37 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ char	*ft_strdup(const char *src)
 {
 	char	*dest;
 
-	if (!(dest = malloc(sizeof(char) * ft_strlen(src) + 1)))
+	dest = malloc(sizeof(char) * ft_strlen(src) + 1);
+	if (!dest)
 		return (NULL);
 	if (src)
 	{
