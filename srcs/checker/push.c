@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 20:49:24 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/26 15:15:41 by lbertran         ###   ########lyon.fr   */
+/*   Created: 2021/03/26 12:43:01 by lbertran          #+#    #+#             */
+/*   Updated: 2021/03/26 16:45:34 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
+#include "../../includes/push_swap.h"
 
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-		i++;
-	return (i);
+void	ps_push(t_stack *origin, t_stack *destination, char *msg)
+{
+	int	val;
+
+	printf("%s\n", msg);
+	val = stack_pop(origin);
+	stack_push(destination, val);
 }

@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 12:09:50 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/26 16:45:30 by lbertran         ###   ########lyon.fr   */
+/*   Created: 2021/03/26 13:39:28 by lbertran          #+#    #+#             */
+/*   Updated: 2021/03/26 16:45:32 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	ps_swap(t_stack *stack, char *msg)
+void	ps_rrotate(t_stack *stack, char *msg)
 {
-	int	top;
-	int	prev;
+	t_stack *copy;
 
 	printf("%s\n", msg);
-	top = stack_pop(stack);
-	prev = stack_pop(stack);
-	stack_push(stack, top);
-	stack_push(stack, prev);
+	copy = stack_copy(stack);
+	stack->head = copy->head - 1;
+	copy->head = 0;
+	stack_push(stack, stack_pop(copy));
+	copy->head = 1;
+	stack->head = -1;
+	while (copy->head < copy->capacity)
+	{
+		stack_push(stack, stack_peek(copy));
+		copy->head++;
+	}
+	stack->head = copy->head - 1;
 }
 
-void	ps_ss(t_stack *stack_a, t_stack *stack_b)
+void	ps_rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	ps_swap(stack_a, "sa");
-	ps_swap(stack_b, "sb");
+	ps_rrotate(stack_a, "rra");
+	ps_rrotate(stack_b, "rrb");
 }

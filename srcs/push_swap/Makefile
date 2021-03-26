@@ -6,12 +6,11 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/03/16 16:41:22 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/03/26 13:12:55 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= main.c \
-			stack/stack.c
+SRC		= main.c
 OBJS	= ${SRC:.c=.o}
 INCS	= includes
 NAME	= push_swap

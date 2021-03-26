@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 19:59:28 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/26 12:36:37 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 15:36:12 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int				ft_iswhitespace(char c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
+int				ft_strcmp(const char *s1, const char *s2);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 size_t			ft_strlcat(char *dest, const char *src, size_t size);
 char			*ft_strnstr(const char *str, const char *to_find, size_t len);

@@ -6,7 +6,7 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/03/16 14:58:30 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/03/26 15:36:58 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS		= ft_atoi.c \
 			ft_putnbr_fd.c \
 			ft_putstr_fd.c \
 			ft_split.c \
+			ft_strcmp.c \
 			ft_strrchr.c \
 			ft_strdup.c \
 			ft_strichr.c \

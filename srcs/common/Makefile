@@ -6,11 +6,12 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/03/16 16:40:17 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/03/26 13:11:50 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= error.c
+SRC		= error.c \
+			stack.c
 OBJS	= ${SRC:.c=.o}
 INCS	= includes
 NAME	= common.a

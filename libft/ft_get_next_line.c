@@ -6,21 +6,21 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:14:36 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/26 12:22:25 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 15:11:12 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	fill_line(char **line, char **save, int indx, int ret)
+int		fill_line(char **line, char **save, int indx, int ret)
 {
 	char	*new_save;
 
-	indx = ft_strichr(*save, '\n');
-	if (indx == -1 && ret == 0)
+	if (ret == 0)
+		indx = ft_strichr(*save, '\n');
+	if (ft_strichr(*save, '\n') == -1 && ret == 0)
 	{
-		*line = ft_strdup(*save);
-		if (!*line)
+		if (!(*line = ft_strdup(*save)))
 			return (-1);
 		free(*save);
 		*save = NULL;
@@ -28,9 +28,8 @@ int	fill_line(char **line, char **save, int indx, int ret)
 	}
 	else
 	{
-		*line = ft_strndup(*save, indx);
-		new_save = ft_strdup(&(*save)[indx + 1]);
-		if (!*line || !new_save)
+		if (!(*line = ft_strndup(*save, indx)) ||
+			!(new_save = ft_strdup(&(*save)[indx + 1])))
 			return (-1);
 		free(*save);
 		*save = new_save;
@@ -38,7 +37,7 @@ int	fill_line(char **line, char **save, int indx, int ret)
 	return (1);
 }
 
-int	get_ret_val(char **line, char **save, int indx, int ret)
+int		get_ret_val(char **line, char **save, int indx, int ret)
 {
 	if (ret < 0)
 		return (-1);
@@ -51,31 +50,26 @@ int	get_ret_val(char **line, char **save, int indx, int ret)
 	return (fill_line(line, save, indx, ret));
 }
 
-int	read_buff(char *buff, int fd, char **save, int *indx)
+int		read_buff(char *buff, int fd, char **save, int *indx)
 {
 	int		ret;
 	char	*new_save;
 
-	while (1)
+	while ((ret = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
-		ret = read(fd, buff, BUFFER_SIZE);
-		if (ret == 0)
-			break ;
 		buff[ret] = '\0';
-		new_save = ft_strjoin(*save, buff);
-		if (!new_save)
+		if (!(new_save = ft_strjoin(*save, buff)))
 			return (-1);
 		free(*save);
 		*save = new_save;
-		*indx = ft_strichr(*save, '\n');
-		if (*indx != -1)
+		if ((*indx = ft_strichr(*save, '\n')) != -1)
 			break ;
 	}
 	free(buff);
 	return (ret);
 }
 
-int	ft_get_next_line(int fd, char **line)
+int		ft_get_next_line(int fd, char **line)
 {
 	char			*buff;
 	static char		*save[OPEN_MAX];
@@ -84,11 +78,9 @@ int	ft_get_next_line(int fd, char **line)
 
 	if (fd < 0 || line == NULL || BUFFER_SIZE <= 0 || fd >= OPEN_MAX)
 		return (-1);
-	buff = malloc(BUFFER_SIZE + 1);
-	if (!buff)
+	if (!(buff = malloc(BUFFER_SIZE + 1)))
 		return (-1);
-	ret = read_buff(buff, fd, &save[fd], &indx);
-	if (ret == -1)
+	if ((ret = read_buff(buff, fd, &save[fd], &indx)) == -1)
 		return (-1);
 	return (get_ret_val(line, &save[fd], indx, ret));
 }
