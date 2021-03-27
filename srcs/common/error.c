@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 16:36:41 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/16 16:46:16 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/27 14:04:48 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ void	print_error(char *message)
 void	exit_error(char *message)
 {
 	print_error(message);
+	print_error("\n");
 	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:42:09 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/26 16:43:30 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/27 12:22:01 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	main(int ac, char **av)
 	while (ft_get_next_line(0, &line))
 	{
 		handle_entry(line, &game);
+		free(line);
 		print_game(&game);
 	}
 }
