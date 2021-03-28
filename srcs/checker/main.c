@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:42:09 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/28 15:23:10 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/28 15:55:09 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 void	handle_entry(char *line, t_game *game)
 {
 	if (ft_strcmp("sa", line) == 0)
-		ps_swap(game->stack_a, "sa");
+		ps_swap(game->stack_a, NULL);
 	else if (ft_strcmp("sb", line) == 0)
-		ps_swap(game->stack_b, "sb");
+		ps_swap(game->stack_b, NULL);
 	else if (ft_strcmp("ss", line) == 0)
 		ps_ss(game->stack_a, game->stack_b);
 	else if (ft_strcmp("pa", line) == 0)
-		ps_push(game->stack_b, game->stack_a, "pa");
+		ps_push(game->stack_b, game->stack_a, NULL);
 	else if (ft_strcmp("pb", line) == 0)
-		ps_push(game->stack_a, game->stack_b, "pb");
+		ps_push(game->stack_a, game->stack_b, NULL);
 	else if (ft_strcmp("ra", line) == 0)
-		ps_rotate(game->stack_a, "ra");
+		ps_rotate(game->stack_a, NULL);
 	else if (ft_strcmp("rb", line) == 0)
-		ps_rotate(game->stack_b, "rb");
+		ps_rotate(game->stack_b, NULL);
 	else if (ft_strcmp("rr", line) == 0)
 		ps_rr(game->stack_a, game->stack_b);
 	else if (ft_strcmp("rra", line) == 0)
-		ps_rrotate(game->stack_a, "rra");
+		ps_rrotate(game->stack_a, NULL);
 	else if (ft_strcmp("rrb", line) == 0)
-		ps_rrotate(game->stack_b, "rrb");
+		ps_rrotate(game->stack_b, NULL);
 	else if (ft_strcmp("rrr", line) == 0)
 		ps_rrr(game->stack_a, game->stack_b);
 }

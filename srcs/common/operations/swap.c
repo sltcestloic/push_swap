@@ -6,18 +6,19 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 12:09:50 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/26 16:45:30 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/28 15:54:39 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
 void	ps_swap(t_stack *stack, char *msg)
 {
 	int	top;
 	int	prev;
 
-	printf("%s\n", msg);
+	if (msg)
+		printf("%s\n", msg);
 	top = stack_pop(stack);
 	prev = stack_pop(stack);
 	stack_push(stack, top);
