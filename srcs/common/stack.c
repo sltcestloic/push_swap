@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 16:23:45 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/26 16:43:07 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/28 14:58:28 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,4 +136,40 @@ void	print_game(t_game *game)
 	printf("- -\n");
 	stack->head = head_a;
 	game->stack_b->head = head_b;
+}
+
+int	stack_get(t_stack *stack, int head)
+{
+	int	head_prev;
+	int	ret;
+
+	head_prev = stack->head;
+	stack->head = head;
+	ret = stack_peek(stack);
+	stack->head = head_prev;
+	return (ret);
+}
+
+int	is_stack_sorted(t_stack *stack)
+{
+	int	head;
+	int	val;
+	int	sorted;
+
+	head = stack->head;
+	sorted = TRUE;
+	while (stack->head)
+	{
+		val = stack_pop(stack);
+		if (val > stack_peek(stack))
+			sorted = FALSE;
+	}
+	stack->head = head;
+	return (sorted);
+}
+
+void	reverse_stack(t_stack *tmp, t_stack *stack)
+{
+	while (tmp->head >= 0)
+		stack_push(stack, stack_pop(tmp));
 }

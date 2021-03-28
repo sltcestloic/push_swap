@@ -6,17 +6,13 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/03/26 13:40:47 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/03/28 13:27:55 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= main.c \
-			push.c \
-			reverse_rotate.c \
-			rotate.c \
-			swap.c
+SRC		= main.c
 OBJS	= ${SRC:.c=.o}
-INCS	= includes
+INCS	= ../includes
 NAME	= checker
 LIBC	= ar rcs
 CC		= gcc

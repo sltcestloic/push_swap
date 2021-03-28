@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:42:09 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/27 12:22:01 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/28 15:09:52 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,28 +57,23 @@ void	handle_entry(char *line, t_game *game)
 
 int	main(int ac, char **av)
 {
-	(void)ac;
-	(void)av;
 	t_game	game;
-	t_stack *stack_a = new_stack(6);
-	t_stack	*stack_b = new_stack(6);
 	char	*line;
 
-	
-	stack_push(stack_a, 6);
-	stack_push(stack_a, 1);
-	stack_push(stack_a, 5);
-	stack_push(stack_a, 3);
-	stack_push(stack_a, 4);
-	stack_push(stack_a, 2);
-
-	game.stack_a = stack_a;
-	game.stack_b = stack_b;
-	print_game(&game);
+	if (ac == 1)
+		exit_error("Please specify a list of numbers.");
+	game.verbose = FALSE;
+	parse_input(ac, av, &game);
+	reverse_stack(game.stack_b, game.stack_a);
 	while (ft_get_next_line(0, &line))
 	{
 		handle_entry(line, &game);
 		free(line);
-		print_game(&game);
+		if (game.verbose)
+			print_game(&game);
 	}
+	if (is_stack_sorted(game.stack_a) && is_empty(game.stack_b))
+		printf("%sOK%s\n", GREEN, RESET);
+	else
+		print_error("KO\n");
 }

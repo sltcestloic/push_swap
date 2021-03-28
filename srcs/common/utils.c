@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 16:36:41 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/28 15:09:32 by lbertran         ###   ########lyon.fr   */
+/*   Created: 2021/03/28 14:36:29 by lbertran          #+#    #+#             */
+/*   Updated: 2021/03/28 14:36:34 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
-
-void	print_error(char *message)
+int	splitlen(char **split)
 {
-	ft_putstr_fd(RED, 2);
-	ft_putstr_fd(message, 2);
-	ft_putstr_fd(RESET, 2);
-}
+	int	i;
 
-void	exit_error(char *message)
-{
-	print_error(message);
-	print_error("\n");
-	exit(EXIT_FAILURE);
+	i = 0;
+	while (split[i])
+		i++;
+	return (i);
 }

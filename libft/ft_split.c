@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 16:21:23 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/26 12:27:44 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/28 14:41:53 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,13 @@ char	*ft_strrdup(const char *str, int start, int end)
 	return (ret);
 }
 
-void	free_all(char **ret, int size)
+void	free_split(char **ret)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < (size_t)size)
-	{
-		free(ret[i]);
-		i++;
-	}
+	while (ret[i])
+		free(ret[i++]);
 	free(ret);
 }
 
@@ -98,7 +95,7 @@ char	**ft_split(const char *str, char c)
 			ret[wc] = ft_strrdup(str, get_w_start(str, c, i), i);
 			if (!ret[wc++])
 			{
-				free_all(ret, wc - 1);
+				free_split(ret);
 				return (NULL);
 			}
 		}
