@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:42:09 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/28 15:09:52 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/28 15:23:10 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ int	main(int ac, char **av)
 	if (is_stack_sorted(game.stack_a) && is_empty(game.stack_b))
 		printf("%sOK%s\n", GREEN, RESET);
 	else
-		print_error("KO\n");
+		fprintf(stderr, "%sKO%s\n", RED, RESET);
 }
