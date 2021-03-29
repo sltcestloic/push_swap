@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 16:23:45 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/28 14:58:28 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 13:13:25 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,4 +172,95 @@ void	reverse_stack(t_stack *tmp, t_stack *stack)
 {
 	while (tmp->head >= 0)
 		stack_push(stack, stack_pop(tmp));
+}
+
+int	stack_smallest(t_stack *stack)
+{
+	int	ret;
+	int	head;
+
+	ret = INT_MAX;
+	head = stack->head;
+	while (stack->head >= 0)
+	{
+		if (stack_peek(stack) < ret)
+			ret = stack_peek(stack);
+		stack->head--;
+	}
+	stack->head = head;
+	return (ret);
+}
+
+int	stack_smallest_index(t_stack *stack)
+{
+	int	ret;
+	int	head;
+	int	val;
+
+	val = INT_MAX;
+	head = stack->head;
+	while (stack->head >= 0)
+	{
+		if (stack_peek(stack) < val)
+		{
+			val = stack_peek(stack);
+			ret = stack->head;
+		}
+		stack->head--;
+	}
+	stack->head = head;
+	return (ret);
+}
+
+int	stack_biggest(t_stack *stack)
+{
+	int	ret;
+	int	head;
+
+	ret = INT_MIN;
+	head = stack->head;
+	while (stack->head >= 0)
+	{
+		if (stack_peek(stack) > ret)
+			ret = stack_peek(stack);
+		stack->head--;
+	}
+	stack->head = head;
+	return (ret);
+}
+
+int	stack_biggest_index(t_stack *stack)
+{
+	int	ret;
+	int	head;
+	int	val;
+
+	val = INT_MIN;
+	head = stack->head;
+	while (stack->head >= 0)
+	{
+		if (stack_peek(stack) > val)
+		{
+			val = stack_peek(stack);
+			ret = stack->head;
+		}
+		stack->head--;
+	}
+	stack->head = head;
+	return (ret);
+}
+
+int	actions_to_top(t_stack *stack, int index)
+{
+	int	middle;
+	int	ret;
+	int	size;
+
+	size = stack_size(stack) - 1;
+	middle = size / 2;
+	if (index >= middle)
+		ret = size - index;
+	else
+		ret = index + 1;
+	return (ret);
 }

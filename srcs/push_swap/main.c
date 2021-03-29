@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:13 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/28 15:23:03 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 12:51:30 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	sort_stack(t_game *game)
 {
 	if (stack_size(game->stack_a) == 3)
 		sort_3(game->stack_a);
+	else if (stack_size(game->stack_a) == 5)
+		sort_5(game);
 }
 
 int	main(int ac, char **av)
