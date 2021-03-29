@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 14:31:56 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/28 15:17:02 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 15:24:43 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,39 @@ void	parse_char_input(int ac, char **av, t_game *game)
 	free_split(split);
 }
 
+int	contains_input(int buffer[], int input, int n)
+{
+	int i;
+
+	i = 0;
+	while (i < n)
+		if (buffer[i++] == input)
+			return (TRUE);
+	return (FALSE);
+}
+
+void	validate_input(t_game *game)
+{
+	int	head;
+	int	buffer[game->stack_b->head + 1];
+	int	i;
+
+	head = game->stack_b->head;
+	i = 0;
+	while (game->stack_b->head >= 0)
+	{
+		if (contains_input(buffer, stack_peek(game->stack_b), i))
+			exit_error("Duplicate value in input.");
+		buffer[i++] = stack_pop(game->stack_b);
+	}
+	game->stack_b->head = head;
+}
+
 void	parse_input(int ac, char **av, t_game *game)
 {
-	
 	if (ac > 2)
 		parse_normal_input(ac, av, game);
 	else
 		parse_char_input(ac, av, game);
+	validate_input(game);
 }

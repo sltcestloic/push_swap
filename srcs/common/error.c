@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 16:36:41 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/28 15:09:32 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 15:25:17 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_error(char *message)
 {
-	ft_putstr_fd(RED, 2);
+	ft_putstr_fd(HRED, 2);
 	ft_putstr_fd(message, 2);
 	ft_putstr_fd(RESET, 2);
 }

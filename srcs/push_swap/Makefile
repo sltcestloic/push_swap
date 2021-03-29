@@ -6,13 +6,14 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/03/29 12:52:00 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/03/29 14:09:00 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 SRC		= main.c \
 			sort_3.c \
-			sort_5.c
+			sort_5.c \
+			sort.c
 OBJS	= ${SRC:.c=.o}
 INCS	= includes
 NAME	= push_swap

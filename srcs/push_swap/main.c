@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:13 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/29 12:51:30 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 15:10:44 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ static void	sort_stack(t_game *game)
 		sort_3(game->stack_a);
 	else if (stack_size(game->stack_a) == 5)
 		sort_5(game);
+	else if (stack_size(game->stack_a) <= 100)
+		sort(game);
+	else
+		printf("Je supporte pas encore autant de nombres dsl\n");
 }
 
 int	main(int ac, char **av)

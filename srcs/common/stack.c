@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 16:23:45 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/29 13:13:25 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 14:46:28 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -264,3 +264,84 @@ int	actions_to_top(t_stack *stack, int index)
 		ret = index + 1;
 	return (ret);
 }
+
+void	push_to_top(t_stack *stack, int index)
+{
+	int	actions;
+
+	actions = actions_to_top(stack, index) + 1;
+	 if (index >= (stack_size(stack) - 1) / 2) // au dessus du milieu du stack
+		while (--actions)
+			ps_rotate(stack, "ra");
+	else
+		while (--actions)
+			ps_rrotate(stack, "rra"); // en dessous du milieu
+}
+
+int	find_next_bigger(t_stack *stack, int current)
+{
+	int	ret;
+	int	diff;
+	int	head;
+
+	head = stack->head;
+	diff = INT_MIN;
+	if (stack_size(stack) == 1)
+		return (stack->head);
+	while (stack->head >= 0)
+	{
+		if (current - stack_peek(stack) < 0 && current - stack_peek(stack) > diff)
+		{
+			diff = current - stack_peek(stack);
+			ret = stack->head;
+		}
+		stack->head--;
+	}
+	stack->head = head;
+	if (diff == INT_MIN)
+		return (-1);
+	return (ret);
+}
+
+int	find_next_smaller(t_stack *stack, int current)
+{
+	int	ret;
+	int	diff;
+	int	head;
+
+	head = stack->head;
+	diff = INT_MAX;
+	if (stack_size(stack) == 1)
+		return (stack->head);
+	while (stack->head >= 0)
+	{
+		if (current - stack_peek(stack) > 0 && current - stack_peek(stack) < diff)
+		{
+			diff = current - stack_peek(stack);
+			ret = stack->head;
+		}
+		stack->head--;
+	}
+	stack->head = head;
+	if (diff == INT_MAX)
+		return (-1);
+	return (ret);
+}
+
+
+int	find_next(t_stack *stack, int current)
+{
+	int	bigger;
+	int	smaller;
+
+	bigger = find_next_bigger(stack, current);
+	smaller = find_next_smaller(stack, current);
+	if (bigger == -1)
+		return (smaller);
+	else if (smaller == -1)
+		return (bigger);
+	if (actions_to_top(stack, bigger) < actions_to_top(stack, smaller))
+		return (bigger);
+	else
+		return (smaller);
+} 

@@ -6,24 +6,11 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 12:38:33 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/29 13:38:39 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 13:53:46 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-void	push_to_top(t_stack *stack, int index)
-{
-	int	actions;
-
-	actions = actions_to_top(stack, index) + 1;
-	 if (index >= (stack_size(stack) - 1) / 2) // au dessus du milieu du stack
-		while (--actions)
-			ps_rotate(stack, "ra");
-	else
-		while (--actions)
-			ps_rrotate(stack, "rra"); // en dessous du milieu
-}
 
 void	sort_5(t_game *game)
 {
@@ -72,5 +59,5 @@ void	sort_5(t_game *game)
 		ps_push(game->stack_b, game->stack_a, "pa");
 		ps_rotate(game->stack_a, "ra");
 	}
-	print_game(game);
+	//print_game(game);
 }
