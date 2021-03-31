@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 16:23:45 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/29 14:46:28 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:46:31 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,7 +265,7 @@ int	actions_to_top(t_stack *stack, int index)
 	return (ret);
 }
 
-void	push_to_top(t_stack *stack, int index)
+void	push_to_top_a(t_stack *stack, int index)
 {
 	int	actions;
 
@@ -276,6 +276,19 @@ void	push_to_top(t_stack *stack, int index)
 	else
 		while (--actions)
 			ps_rrotate(stack, "rra"); // en dessous du milieu
+}
+
+void	push_to_top_b(t_stack *stack, int index)
+{
+	int	actions;
+
+	actions = actions_to_top(stack, index) + 1;
+	 if (index >= (stack_size(stack) - 1) / 2) // au dessus du milieu du stack
+		while (--actions)
+			ps_rotate(stack, "rb");
+	else
+		while (--actions)
+			ps_rrotate(stack, "rrb"); // en dessous du milieu
 }
 
 int	find_next_bigger(t_stack *stack, int current)

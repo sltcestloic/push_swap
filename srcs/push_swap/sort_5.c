@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 12:38:33 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/29 13:53:46 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:32:55 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ void	sort_5(t_game *game)
 	//printf("actions max: %d\n", actions_to_top(game->stack_a, max));
 	if (actions_to_top(game->stack_a, min) < actions_to_top(game->stack_a, max))
 	{
-		push_to_top(game->stack_a, min);
+		push_to_top_a(game->stack_a, min);
 		//print_game(game);
 		ps_push(game->stack_a, game->stack_b, "pb");
-		push_to_top(game->stack_a, stack_biggest_index(game->stack_a));
+		push_to_top_a(game->stack_a, stack_biggest_index(game->stack_a));
 		//print_game(game);
 	}
 	else
 	{
-		push_to_top(game->stack_a, max);
+		push_to_top_a(game->stack_a, max);
 		//print_game(game);
 		ps_push(game->stack_a, game->stack_b, "pb");
 		//print_game(game);
 		//printf("actions pr push index %d : %d\n", stack_smallest_index(game->stack_a), actions_to_top(game->stack_a, stack_smallest_index(game->stack_a)));
-		push_to_top(game->stack_a, stack_smallest_index(game->stack_a));
+		push_to_top_a(game->stack_a, stack_smallest_index(game->stack_a));
 		//print_game(game);
 	}
 	ps_push(game->stack_a, game->stack_b, "pb");

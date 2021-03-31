@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:42:09 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/28 15:55:09 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:26:24 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ int	main(int ac, char **av)
 		printf("%sOK%s\n", GREEN, RESET);
 	else
 		fprintf(stderr, "%sKO%s\n", RED, RESET);
+	print_game(&game);
 }

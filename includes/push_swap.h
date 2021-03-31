@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:58 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/29 14:31:07 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:32:15 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int		stack_biggest(t_stack *stack);
 int		stack_smallest_index(t_stack *stack);
 int		stack_biggest_index(t_stack *stack);
 int		stack_get(t_stack *stack, int head);
-void	push_to_top(t_stack *stack, int index);
+void	push_to_top_a(t_stack *stack, int index);
+void	push_to_top_b(t_stack *stack, int index);
 int		find_next_bigger(t_stack *stack, int current);
 int		find_next_smaller(t_stack *stack, int current);
 int		find_next(t_stack *stack, int current);
@@ -68,6 +69,7 @@ int		stack_get(t_stack *stack, int head);
 void	sort_3(t_stack *stack);
 void	sort_5(t_game *game);
 void	sort(t_game *game);
+void	newsort(t_game *game);
 int		actions_to_top(t_stack *stack, int index);
 
 
