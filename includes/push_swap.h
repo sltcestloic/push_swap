@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:58 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 14:46:55 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 14:47:49 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@
 # include <stdio.h>
 # include "../libft/libft.h"
 
-
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int			capacity;
 	int			head;
 	int			*content;
 }				t_stack;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
@@ -36,7 +35,7 @@ typedef struct	s_game
 	int			step;
 }				t_game;
 
-typedef struct	s_range
+typedef struct s_range
 {
 	int			min;
 	int			max;
@@ -96,7 +95,6 @@ void	ps_ss(t_stack *stack_a, t_stack *stack_b);
 void	ps_rrotate(t_stack *stack, char *msg);
 void	ps_rrr(t_stack *stack_a, t_stack *stack_b);
 
-
 /*
 ** Push swap functions
 */
@@ -113,7 +111,6 @@ void	print_game(t_game *game);
 void	parse_normal_input(int ac, char **av, t_game *game);
 void	parse_char_input(int ac, char **av, t_game *game);
 void	parse_input(int ac, char **av, t_game *game);
-
 
 /*
 ** Utils
