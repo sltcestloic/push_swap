@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:58 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/31 13:32:15 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 14:17:57 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,18 @@ typedef struct	s_game
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 	int			verbose;
+	int			biggest;
+	int			smallest;
+	int			median;
+	int			chunk_size;
+	int			step;
 }				t_game;
+
+typedef struct	s_range
+{
+	int			min;
+	int			max;
+}				t_range;
 
 
 void	exit_error(char *message);
@@ -56,6 +67,10 @@ void	push_to_top_b(t_stack *stack, int index);
 int		find_next_bigger(t_stack *stack, int current);
 int		find_next_smaller(t_stack *stack, int current);
 int		find_next(t_stack *stack, int current);
+int		get_ideal_chunk_size(t_game *game, int biggest);
+int		find_in_range(t_stack *stack, t_game *game);
+int		find_median(t_stack *stack, int mid);
+int		find_median_value(t_stack *stack, int mid);
 
 void	ps_push(t_stack *origin, t_stack *destination, char *msg);
 void	ps_rotate(t_stack *stack, char *msg);
@@ -69,7 +84,6 @@ int		stack_get(t_stack *stack, int head);
 void	sort_3(t_stack *stack);
 void	sort_5(t_game *game);
 void	sort(t_game *game);
-void	newsort(t_game *game);
 int		actions_to_top(t_stack *stack, int index);
 
 
@@ -87,5 +101,6 @@ void	parse_input(int ac, char **av, t_game *game);
 */
 
 int		splitlen(char **split);
+int		ft_abs(int i);
 
 #endif

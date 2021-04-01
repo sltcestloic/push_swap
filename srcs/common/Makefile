@@ -6,18 +6,26 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/03/28 15:36:38 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/04/01 14:18:16 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 SRC		= error.c \
-			stack.c \
 			utils.c \
 			operations/push.c \
 			operations/reverse_rotate.c \
 			operations/rotate.c \
 			operations/swap.c \
-			parsing/parser.c
+			parsing/parser.c \
+			stack/basics.c \
+			stack/get.c \
+			stack/median.c \
+			stack/next.c \
+			stack/peek_pop.c \
+			stack/print.c \
+			stack/range.c \
+			stack/top.c \
+			stack/utils.c
 OBJS	= ${SRC:.c=.o}
 INCS	= ../includes
 NAME	= common.a

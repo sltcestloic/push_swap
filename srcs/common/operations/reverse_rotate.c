@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 13:39:28 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/29 13:33:10 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:51:42 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ps_rrotate(t_stack *stack, char *msg)
 {
-	t_stack *copy;
-	int	swap;
-	int	head;
+	t_stack	*copy;
+	int		swap;
+	int		head;
 
 	if (msg)
 		printf("%s\n", msg);
@@ -39,4 +39,3 @@ void	ps_rrr(t_stack *stack_a, t_stack *stack_b)
 	ps_rrotate(stack_a, "rra");
 	ps_rrotate(stack_b, "rrb");
 }
-

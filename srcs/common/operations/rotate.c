@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 12:45:37 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/28 15:54:29 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:51:52 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ps_rotate(t_stack *stack, char *msg)
 {
-	t_stack *copy;
+	t_stack	*copy;
 	int		head;
 
 	if (msg)

@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:42:09 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/31 13:26:24 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:57:31 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,6 @@ void	handle_entry(char *line, t_game *game)
 		ps_rrr(game->stack_a, game->stack_b);
 }
 
-
-/* int	main(int ac, char **av)
-{
-	(void)ac;
-	(void)av;
-	t_stack *stack_a = new_stack(6);
-
-	
-	stack_push(stack_a, 2);
-	stack_push(stack_a, 3);
-	stack_push(stack_a, 4);
-	stack_push(stack_a, 1);
-
-	printf("%d\n", stack_a->head);
-	ps_rotate(stack_a, "rb");
-}  */
-
 int	main(int ac, char **av)
 {
 	t_game	game;
@@ -76,5 +59,4 @@ int	main(int ac, char **av)
 		printf("%sOK%s\n", GREEN, RESET);
 	else
 		fprintf(stderr, "%sKO%s\n", RED, RESET);
-	print_game(&game);
 }

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   peek_pop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 14:36:29 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 14:13:31 by lbertran         ###   ########lyon.fr   */
+/*   Created: 2021/04/01 13:50:30 by lbertran          #+#    #+#             */
+/*   Updated: 2021/04/01 13:50:38 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	splitlen(char **split)
-{
-	int	i;
+#include "../../../includes/push_swap.h"
 
-	i = 0;
-	while (split[i])
-		i++;
-	return (i);
+int	stack_peek(t_stack *stack)
+{
+	if (is_empty(stack))
+		exit_error("Tried to peek element from empty stack.");
+	return (stack->content[stack->head]);
 }
 
-int	ft_abs(int i)
+int	stack_pop(t_stack *stack)
 {
-	if (i < 0)
-		return (-i);
-	return (i);
+	if (is_empty(stack))
+		exit_error("Tried to pop element from empty stack.");
+	return (stack->content[stack->head--]);
 }

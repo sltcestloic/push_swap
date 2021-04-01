@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 14:31:56 by lbertran          #+#    #+#             */
-/*   Updated: 2021/03/29 15:24:43 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:54:49 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	parse_normal_input(int ac, char **av, t_game *game)
 void	parse_char_input(int ac, char **av, t_game *game)
 {
 	char	**split;
-	int	i;
+	int		i;
 
 	(void)ac;
 	split = ft_split(av[1], ' ');
@@ -62,7 +62,7 @@ void	parse_char_input(int ac, char **av, t_game *game)
 
 int	contains_input(int buffer[], int input, int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < n)
@@ -74,10 +74,13 @@ int	contains_input(int buffer[], int input, int n)
 void	validate_input(t_game *game)
 {
 	int	head;
-	int	buffer[game->stack_b->head + 1];
+	int	*buffer;
 	int	i;
 
 	head = game->stack_b->head;
+	buffer = malloc(sizeof(int) * (game->stack_b->head + 1));
+	if (!buffer)
+		return ;
 	i = 0;
 	while (game->stack_b->head >= 0)
 	{
@@ -86,6 +89,7 @@ void	validate_input(t_game *game)
 		buffer[i++] = stack_pop(game->stack_b);
 	}
 	game->stack_b->head = head;
+	free(buffer);
 }
 
 void	parse_input(int ac, char **av, t_game *game)
