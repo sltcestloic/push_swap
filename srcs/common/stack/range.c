@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 14:17:02 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/06 10:31:28 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 10:44:13 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int	find_in_range(t_stack *stack, t_game *game)
 	init_range(&range, game);
 	while (stack->head >= 0)
 	{
-		if (get_index(game, stack) >= range.min && get_index(game, stack) <= range.max
+		if (get_index(game, stack) >= range.min
+			&& get_index(game, stack) <= range.max
 			&& stack_peek(stack) != game->biggest)
 		{
 			if (actions_to_top(stack, stack->head, head) < diff)
