@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 13:41:43 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 13:56:52 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 12:59:26 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,43 +24,49 @@ void	print_stack(t_stack *stack)
 	stack->head = head;
 }
 
-void	print_a_b(t_stack *stack_a, t_stack *stack_b)
+void	print_a_b(t_game *game)
 {
 	int	longest;
+	int	val;
 
-	longest = ft_intlen(stack_biggest(stack_a)) + 1;
+	longest = ft_intlen(stack_biggest(game->stack_a)) + 1;
 	printf("%-*c -\n", longest, '-');
-	while (stack_a->head > -1)
+	while (game->stack_a->head > -1)
 	{
-		printf("%-*d", longest, stack_peek(stack_a));
-		if (stack_b->head >= stack_a->head)
+		val = stack_peek(game->stack_a);
+		printf("%s%-*d%s", get_color(val, game), longest, val, RESET);
+		if (game->stack_b->head >= game->stack_a->head)
 		{
-			printf(" %d", stack_peek(stack_b));
-			stack_b->head--;
+			val = stack_peek(game->stack_b);
+			printf(" %s%d%s", get_color(val, game), val, RESET);
+			game->stack_b->head--;
 		}
-		stack_a->head--;
+		game->stack_a->head--;
 		printf("\n");
 	}
 	printf("%-*c -\n", longest, '-');
 }
 
-void	print_b_a(t_stack *stack_a, t_stack *stack_b)
+void	print_b_a(t_game *game)
 {
 	int	longest;
+	int	val;
 
-	longest = ft_intlen(stack_biggest(stack_a)) + 1;
+	longest = ft_intlen(stack_biggest(game->stack_a)) + 1;
 	printf("%-*c -\n", longest, '-');
-	while (stack_b->head > -1)
+	while (game->stack_b->head > -1)
 	{
-		if (stack_a->head >= stack_b->head)
+		if (game->stack_a->head >= game->stack_b->head)
 		{
-			printf("%-*d", longest, stack_peek(stack_a));
-			stack_a->head--;
+			val = stack_peek(game->stack_a);
+			printf("%s%-*d%s", get_color(val, game), longest, val, RESET);
+			game->stack_a->head--;
 		}
 		else
 			printf("%*s", longest, "");
-		printf(" %d", stack_peek(stack_b));
-		stack_b->head--;
+		val = stack_peek(game->stack_b);
+		printf(" %s%d%s", get_color(val, game), val, RESET);
+		game->stack_b->head--;
 		printf("\n");
 	}
 	printf("%-*c -\n", longest, '-');
@@ -76,9 +82,9 @@ void	print_game(t_game *game)
 	head_a = game->stack_a->head;
 	head_b = game->stack_b->head;
 	if (stack->head > game->stack_b->head)
-		print_a_b(game->stack_a, game->stack_b);
+		print_a_b(game);
 	else
-		print_b_a(game->stack_a, game->stack_b);
+		print_b_a(game);
 	stack->head = head_a;
 	game->stack_b->head = head_b;
 }

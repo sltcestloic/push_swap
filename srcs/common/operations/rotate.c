@@ -6,13 +6,13 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 12:45:37 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 13:51:52 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 13:12:58 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void	ps_rotate(t_stack *stack, char *msg)
+void	ps_rotate(t_game *game, t_stack *stack, char *msg)
 {
 	t_stack	*copy;
 	int		head;
@@ -29,10 +29,12 @@ void	ps_rotate(t_stack *stack, char *msg)
 		stack_push(stack, stack_peek(copy));
 		copy->head++;
 	}
+	game->rotated = TRUE;
+	game->rotated_nbr = stack_get(stack, 0);
 }
 
-void	ps_rr(t_stack *stack_a, t_stack *stack_b)
+void	ps_rr(t_game *game, t_stack *stack_a, t_stack *stack_b)
 {
-	ps_rotate(stack_a, "ra");
-	ps_rotate(stack_b, "rb");
+	ps_rotate(game, stack_a, "ra");
+	ps_rotate(game, stack_b, "rb");
 }

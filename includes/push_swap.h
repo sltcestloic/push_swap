@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:58 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 14:47:49 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 13:35:21 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,19 @@ typedef struct s_game
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 	int			verbose;
+	int			color;
 	int			biggest;
 	int			smallest;
 	int			median;
 	int			chunk_size;
 	int			step;
+	int			pushed;
+	int			pushed_nbr;
+	int			swapped;
+	int			swap_a;
+	int			swap_b;
+	int			rotated;
+	int			rotated_nbr;
 }				t_game;
 
 typedef struct s_range
@@ -71,8 +79,8 @@ void	print_stack(t_stack *stack);
 ** Stack sorting utils
 */
 
-void	push_to_top_a(t_stack *stack, int index);
-void	push_to_top_b(t_stack *stack, int index);
+void	push_to_top_a(t_game *game, t_stack *stack, int index);
+void	push_to_top_b(t_game *game, t_stack *stack, int index);
 int		find_next_bigger(t_stack *stack, int current);
 int		find_next_smaller(t_stack *stack, int current);
 int		find_next(t_stack *stack, int current);
@@ -81,25 +89,25 @@ int		find_in_range(t_stack *stack, t_game *game);
 int		find_median(t_stack *stack, int mid);
 int		find_median_value(t_stack *stack, int mid);
 int		stack_get(t_stack *stack, int head);
-int		actions_to_top(t_stack *stack, int index);
+int		actions_to_top(t_stack *stack, int index, int head);
 
 /*
 ** Push swap operations
 */
 
-void	ps_push(t_stack *origin, t_stack *destination, char *msg);
-void	ps_rotate(t_stack *stack, char *msg);
-void	ps_rr(t_stack *stack_a, t_stack *stack_b);
-void	ps_swap(t_stack *stack, char *msg);
-void	ps_ss(t_stack *stack_a, t_stack *stack_b);
-void	ps_rrotate(t_stack *stack, char *msg);
-void	ps_rrr(t_stack *stack_a, t_stack *stack_b);
+void	ps_push(t_game *game, t_stack *origin, t_stack *destination, char *msg);
+void	ps_rotate(t_game *game, t_stack *stack, char *msg);
+void	ps_rr(t_game *game, t_stack *stack_a, t_stack *stack_b);
+void	ps_swap(t_game *game, t_stack *stack, char *msg);
+void	ps_ss(t_game *game, t_stack *stack_a, t_stack *stack_b);
+void	ps_rrotate(t_game *game, t_stack *stack, char *msg);
+void	ps_rrr(t_game *game, t_stack *stack_a, t_stack *stack_b);
 
 /*
 ** Push swap functions
 */
 
-void	sort_3(t_stack *stack);
+void	sort_3(t_game *game, t_stack *stack);
 void	sort_5(t_game *game);
 void	sort(t_game *game);
 void	print_game(t_game *game);
@@ -118,6 +126,7 @@ void	parse_input(int ac, char **av, t_game *game);
 
 int		splitlen(char **split);
 int		ft_abs(int i);
+char	*get_color(int val, t_game *game);
 
 /*
 ** Errors

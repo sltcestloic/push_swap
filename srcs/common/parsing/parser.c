@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 14:31:56 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 13:54:49 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 12:57:38 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@ void	parse_char_input(int ac, char **av, t_game *game)
 	game->stack_b = new_stack(splitlen(split));
 	while (split[i])
 	{
-		if (ft_strcmp("-v", split[i]) == 0)
+		if (ft_strcmp("-v", split[i]) == 0 || ft_strcmp("-c", split[i]) == 0)
 		{
-			game->verbose = TRUE;
+			if (!game->verbose)
+				game->verbose = ft_strcmp("-v", split[i]) == 0;
+			if (!game->color)
+				game->color = ft_strcmp("-c", split[i]) == 0;
 			i++;
 			continue ;
 		}

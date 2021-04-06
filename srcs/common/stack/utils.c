@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 13:48:52 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 14:17:01 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 13:49:15 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ int	get_ideal_chunk_size(t_game *game, int biggest)
 	t_stack	*stack;
 
 	stack = game->stack_a;
-	if (stack->capacity < 70)
+	if (stack->capacity < 20)
+		return (biggest / 2);
+	else if (stack->capacity < 70)
 		return (biggest / 4);
 	else if (stack->capacity < 300)
 		return (biggest / 8);

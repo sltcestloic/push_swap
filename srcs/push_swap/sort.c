@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 17:09:46 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 14:17:19 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 13:50:17 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ void	sort_to_a(t_game *game)
 	current = stack_peek(game->stack_a);
 	while (!is_empty(game->stack_b))
 	{
-		push_to_top_b(game->stack_b, stack_biggest_index(game->stack_b));
+		push_to_top_b(game, game->stack_b, stack_biggest_index(game->stack_b));
 		if (stack_peek(game->stack_b) < stack_peek(game->stack_a))
 		{
-			ps_push(game->stack_b, game->stack_a, "pa");
+			ps_push(game, game->stack_b, game->stack_a, "pa");
 			current = stack_peek(game->stack_a);
 		}
 		else
 		{
-			ps_push(game->stack_b, game->stack_a, "pa");
-			ps_rotate(game->stack_a, "ra");
+			ps_push(game, game->stack_b, game->stack_a, "pa");
+			ps_rotate(game, game->stack_a, "ra");
 		}
 	}
 }
@@ -43,16 +43,16 @@ static void	loop_norm(t_game *game)
 {
 	if (stack_peek(game->stack_a) < stack_get(game->stack_b, 0))
 	{
-		ps_push(game->stack_a, game->stack_b, "pb");
-		ps_rotate(game->stack_b, "rb");
+		ps_push(game, game->stack_a, game->stack_b, "pb");
+		ps_rotate(game, game->stack_b, "rb");
 	}
 	else if (stack_peek(game->stack_a) < stack_peek(game->stack_b))
 	{
-		ps_push(game->stack_a, game->stack_b, "pb");
-		ps_swap(game->stack_b, "sb");
+		ps_push(game, game->stack_a, game->stack_b, "pb");
+		ps_swap(game, game->stack_b, "sb");
 	}
 	else
-		ps_push(game->stack_a, game->stack_b, "pb");
+		ps_push(game, game->stack_a, game->stack_b, "pb");
 }
 
 void	sort_loop(t_game *game)
@@ -67,15 +67,15 @@ void	sort_loop(t_game *game)
 			game->step++;
 			continue ;
 		}
-		push_to_top_a(game->stack_a, current);
+		push_to_top_a(game, game->stack_a, current);
 		if (is_empty(game->stack_b))
 		{
-			ps_push(game->stack_a, game->stack_b, "pb");
+			ps_push(game, game->stack_a, game->stack_b, "pb");
 			continue ;
 		}
 		loop_norm(game);
 	}
-	print_game(game);
+	//print_game(game);
 	sort_to_a(game);
 }
 

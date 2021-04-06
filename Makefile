@@ -6,7 +6,7 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/03/16 16:36:09 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/04/02 11:03:57 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ all:
 	@${MAKE} -C ./srcs/checker
 	@cp srcs/checker/checker ./checker
 	@cp srcs/push_swap/push_swap ./push_swap
-
-bonus: all
 
 clean:
 	@${MAKE} clean -C ./libft

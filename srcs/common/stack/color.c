@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 12:09:50 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/02 13:13:06 by lbertran         ###   ########lyon.fr   */
+/*   Created: 2021/04/02 12:48:24 by lbertran          #+#    #+#             */
+/*   Updated: 2021/04/02 13:13:55 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void	ps_swap(t_game *game, t_stack *stack, char *msg)
+char	*get_color(int val, t_game *game)
 {
-	int	top;
-	int	prev;
-
-	if (msg)
-		printf("%s\n", msg);
-	top = stack_pop(stack);
-	prev = stack_pop(stack);
-	game->swap_a = top;
-	game->swap_b = prev;
-	game->swapped = TRUE;
-	stack_push(stack, top);
-	stack_push(stack, prev);
-}
-
-void	ps_ss(t_game *game, t_stack *stack_a, t_stack *stack_b)
-{
-	ps_swap(game, stack_a, "sa");
-	ps_swap(game, stack_b, "sb");
+	if (!game->color)
+		return (RESET);
+	else if (val == game->swap_a && game->swapped)
+		return (HRED);
+	else if (val == game->swap_b && game->swapped)
+		return (YELLOW);
+	else if (val == game->pushed_nbr && game->pushed)
+		return (GREEN);
+	else if (val == game->rotated_nbr && game->rotated)
+		return (HBLUE);
+	else
+		return (RESET);
 }

@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 13:44:38 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 13:55:34 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 13:36:24 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ int	find_next(t_stack *stack, int current)
 		return (smaller);
 	else if (smaller == -1)
 		return (bigger);
-	if (actions_to_top(stack, bigger) < actions_to_top(stack, smaller))
+	if (actions_to_top(stack, bigger, stack->head)
+		< actions_to_top(stack, smaller, stack->head))
 		return (bigger);
 	else
 		return (smaller);
