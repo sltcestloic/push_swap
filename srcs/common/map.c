@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 09:56:52 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/06 10:31:38 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 10:50:15 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,6 @@ void	set_indexes(t_game *game)
 		push_to_top_silent(game, copy, stack_biggest_index(copy));
 		map_put(game, stack_pop(copy), game->map->index);
 	}
+	free(copy->content);
+	free(copy);
 }
