@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 17:09:46 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/02 13:50:17 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 10:39:14 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	sort_loop(t_game *game)
 		}
 		loop_norm(game);
 	}
-	//print_game(game);
 	sort_to_a(game);
 }
 
@@ -85,6 +84,6 @@ void	sort(t_game *game)
 	game->biggest = stack_biggest(game->stack_a);
 	game->median = find_median_value(game->stack_a, game->biggest / 2);
 	game->step = 1;
-	game->chunk_size = get_ideal_chunk_size(game, game->biggest);
+	game->chunk_size = get_ideal_chunk_size(game, game->map->capacity);
 	sort_loop(game);
 }

@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 13:43:47 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/02 13:38:46 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 10:11:39 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,19 @@ int	actions_to_top(t_stack *stack, int index, int size)
 	else
 		ret = index + 1;
 	return (ret);
+}
+
+void	push_to_top_silent(t_game *game, t_stack *stack, int index)
+{
+	int	actions;
+
+	actions = actions_to_top(stack, index, stack->head) + 1;
+	if (index >= (stack_size(stack) - 1) / 2)
+		while (--actions)
+			ps_rotate(game, stack, NULL);
+	else
+		while (--actions)
+			ps_rrotate(game, stack, NULL);
 }
 
 void	push_to_top_a(t_game *game, t_stack *stack, int index)

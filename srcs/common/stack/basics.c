@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 13:49:48 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/01 13:49:59 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 10:06:39 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ t_stack	*new_stack(int capacity)
 	stack->capacity = capacity;
 	stack->head = -1;
 	stack->content = (int *)malloc(sizeof(int) * capacity);
-	if (!stack->capacity)
-		exit_error("Failed to malloc stack capacity.");
+	if (!stack->content)
+		exit_error("Failed to malloc stack content.");
 	return (stack);
 }
 

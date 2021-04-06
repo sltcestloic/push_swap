@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 23:49:39 by lbertran          #+#    #+#             */
-/*   Updated: 2020/12/01 15:53:07 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 10:37:42 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	ft_atoi(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		result = result * 10 + (str[i] - 48);
-		if (result >= LONG_MAX && sign == -1)
+		if (result >= INT_MAX && sign == -1)
 			return (0);
-		else if (result > LONG_MAX && sign == 1)
+		else if (result > INT_MAX && sign == 1)
 			return (-1);
 		i++;
 	}

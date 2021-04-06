@@ -6,11 +6,12 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/04/02 12:54:09 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/04/06 10:25:14 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 SRC		= error.c \
+			map.c \
 			utils.c \
 			operations/push.c \
 			operations/reverse_rotate.c \

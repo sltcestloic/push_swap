@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:58 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/02 13:35:21 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 10:14:57 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,19 @@ typedef struct s_stack
 	int			*content;
 }				t_stack;
 
+typedef struct s_map
+{
+	int			*key;
+	int			*value;
+	int			index;
+	int			capacity;
+}				t_map;
+
 typedef struct s_game
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
+	t_map		*map;
 	int			verbose;
 	int			color;
 	int			biggest;
@@ -81,6 +90,7 @@ void	print_stack(t_stack *stack);
 
 void	push_to_top_a(t_game *game, t_stack *stack, int index);
 void	push_to_top_b(t_game *game, t_stack *stack, int index);
+void	push_to_top_silent(t_game *game, t_stack *stack, int index);
 int		find_next_bigger(t_stack *stack, int current);
 int		find_next_smaller(t_stack *stack, int current);
 int		find_next(t_stack *stack, int current);
@@ -134,5 +144,14 @@ char	*get_color(int val, t_game *game);
 
 void	exit_error(char *message);
 void	print_error(char *message);
+
+/*
+** Map
+*/
+
+void	init_map(t_game *game);
+void	map_put(t_game *game, int key, int value);
+int		map_get(t_game *game, int key);
+void	set_indexes(t_game *game);
 
 #endif
