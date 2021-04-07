@@ -6,7 +6,7 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/04/02 11:03:57 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/04/07 15:02:12 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ fclean: clean
 	@${MAKE} fclean -C ./srcs/common
 	@${MAKE} fclean -C ./srcs/push_swap
 	@${MAKE} fclean -C ./srcs/checker
+	@rm checker
+	@rm push_swap
 
 re: fclean all
 	
