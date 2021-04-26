@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 13:39:28 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/02 13:12:51 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/26 15:30:09 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ps_rrotate(t_game *game, t_stack *stack, char *msg)
 
 	if (msg)
 		printf("%s\n", msg);
+	if (is_empty(stack))
+		return ;
 	head = stack->head;
 	copy = new_stack(stack->capacity);
 	while (copy->head < head)

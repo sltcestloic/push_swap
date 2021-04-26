@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 12:09:50 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/02 13:13:06 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/26 15:29:50 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ps_swap(t_game *game, t_stack *stack, char *msg)
 
 	if (msg)
 		printf("%s\n", msg);
+	if (is_empty(stack))
+		return ;
 	top = stack_pop(stack);
 	prev = stack_pop(stack);
 	game->swap_a = top;

@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:42:09 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/02 13:13:32 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/26 15:26:51 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ static void	reset_action(t_game *game)
 	game->pushed = FALSE;
 	game->swapped = FALSE;
 	game->rotated = FALSE;
+}
+
+static void	free_stacks(t_game *game)
+{
+	free(game->stack_a->content);
+	free(game->stack_b->content);
+	free(game->stack_a);
+	free(game->stack_b);
 }
 
 void	handle_entry(char *line, t_game *game)
@@ -48,6 +56,8 @@ void	handle_entry(char *line, t_game *game)
 		ps_rrotate(game, game->stack_b, NULL);
 	else if (ft_strcmp("rrr", line) == 0)
 		ps_rrr(game, game->stack_a, game->stack_b);
+	else
+		exit_error("Invalid action.");
 }
 
 int	main(int ac, char **av)
@@ -71,8 +81,10 @@ int	main(int ac, char **av)
 		if (game.verbose)
 			print_game(&game);
 	}
+	free(line);
 	if (is_stack_sorted(game.stack_a) && is_empty(game.stack_b))
 		printf("%sOK%s\n", GREEN, RESET);
 	else
 		fprintf(stderr, "%sKO%s\n", RED, RESET);
+	free_stacks(&game);
 }
