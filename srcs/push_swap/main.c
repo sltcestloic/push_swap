@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:13 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/26 15:27:21 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 13:42:55 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ static void	free_stacks(t_game *game)
 	free(game->stack_b->content);
 	free(game->stack_a);
 	free(game->stack_b);
+	free(game->map->value);
+	free(game->map->key);
+	free(game->map);
 }
 
 int	main(int ac, char **av)

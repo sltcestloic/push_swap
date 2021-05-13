@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 12:45:37 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/26 15:30:06 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 13:41:23 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	ps_rotate(t_game *game, t_stack *stack, char *msg)
 	}
 	game->rotated = TRUE;
 	game->rotated_nbr = stack_get(stack, 0);
+	free(copy->content);
+	free(copy);
 }
 
 void	ps_rr(t_game *game, t_stack *stack_a, t_stack *stack_b)
