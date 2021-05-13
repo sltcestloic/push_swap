@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:42:09 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/26 15:26:51 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/05/13 13:50:53 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int ac, char **av)
 	char	*line;
 
 	if (ac == 1)
-		exit_error("Please specify a list of numbers.");
+		exit(0);
 	game.verbose = FALSE;
 	game.color = FALSE;
 	reset_action(&game);
