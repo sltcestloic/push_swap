@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 14:31:56 by lbertran          #+#    #+#             */
-/*   Updated: 2021/05/19 12:37:39 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 12:47:36 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	parse_normal_input(int ac, char **av, t_game *game)
 {
-	int	i;
+	int		i;
+	char	*itoa;
 
-	i = 1;
+	i = 0;
 	game->stack_a = new_stack(ac - 1);
 	game->stack_b = new_stack(ac - 1);
-	while (i < ac)
+	while (++i < ac)
 	{
+		itoa = ft_itoa(ft_atoi(av[i]));
 		if (ft_strcmp("-v", av[i]) == 0 || ft_strcmp("-c", av[i]) == 0)
 		{
 			if (!game->verbose)
@@ -28,43 +30,35 @@ void	parse_normal_input(int ac, char **av, t_game *game)
 			if (!game->color)
 				game->color = ft_strcmp("-c", av[i]) == 0;
 			i++;
+			free(itoa);
 			continue ;
 		}
-		if ((ft_atoi(av[i]) == 0 && ft_strcmp("0", av[i]) != 0
-				&& ft_strcmp("-2147483648", av[i]) != 0)
-			|| (ft_atoi(av[i]) == -1 && ft_strcmp("-1", av[i]) != 0))
+		if (ft_strcmp(itoa, av[i]) != 0
+			&& ft_strcmp("-2147483648", av[i]) != 0)
 			exit_error("Invalid argument.");
 		stack_push(game->stack_b, ft_atoi(av[i]));
-		i++;
+		free(itoa);
 	}
 }
 
-void	parse_char_input(int ac, char **av, t_game *game)
+void	parse_char_input(char **av, t_game *game)
 {
 	char	**split;
+	char	*itoa;
 	int		i;
 
-	(void)ac;
 	split = ft_split(av[1], ' ');
-	i = 0;
+	i = -1;
 	game->stack_a = new_stack(splitlen(split));
 	game->stack_b = new_stack(splitlen(split));
-	while (split[i])
+	while (split[++i])
 	{
-		if (ft_strcmp("-v", split[i]) == 0 || ft_strcmp("-c", split[i]) == 0)
-		{
-			if (!game->verbose)
-				game->verbose = ft_strcmp("-v", split[i]) == 0;
-			if (!game->color)
-				game->color = ft_strcmp("-c", split[i]) == 0;
-			i++;
-			continue ;
-		}
-		if ((ft_atoi(split[i]) == 0 && ft_strcmp("0", split[i]) != 0
-				&& ft_strcmp("-2147483648", split[i]) != 0)
-			|| (ft_atoi(split[i]) == -1 && ft_strcmp("-1", split[i]) != 0))
+		itoa = ft_itoa(ft_atoi(split[i]));
+		if (ft_strcmp(itoa, split[i]) != 0
+			&& ft_strcmp("-2147483648", split[i]) != 0)
 			exit_error("Invalid argument.");
 		stack_push(game->stack_b, ft_atoi(split[i++]));
+		free(itoa);
 	}
 	free_split(split);
 }
@@ -106,6 +100,6 @@ void	parse_input(int ac, char **av, t_game *game)
 	if (ac > 2)
 		parse_normal_input(ac, av, game);
 	else
-		parse_char_input(ac, av, game);
+		parse_char_input(av, game);
 	validate_input(game);
 }

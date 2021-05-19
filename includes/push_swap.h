@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:40:58 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/06 10:14:57 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 12:44:38 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void	print_game(t_game *game);
 */
 
 void	parse_normal_input(int ac, char **av, t_game *game);
-void	parse_char_input(int ac, char **av, t_game *game);
+void	parse_char_input(char **av, t_game *game);
 void	parse_input(int ac, char **av, t_game *game);
 
 /*
