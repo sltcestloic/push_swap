@@ -6,7 +6,7 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:40:32 by lbertran          #+#    #+#              #
-#    Updated: 2021/04/06 10:25:20 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/05/19 12:28:58 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC		= gcc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -g3 -O3
 
-%.o: %.c ${INCS}
+%.o: %.c ${INCS} ../../libft/libft.a ../common/common.a
 	${CC} ${CFLAGS} -c $< -o $@ -I${INCS}
 
 ${NAME}: ${OBJS}

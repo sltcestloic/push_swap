@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 13:39:28 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/26 15:30:09 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 12:24:11 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void	ps_rrotate(t_game *game, t_stack *stack, char *msg)
 
 void	ps_rrr(t_game *game, t_stack *stack_a, t_stack *stack_b)
 {
-	ps_rrotate(game, stack_a, "rra");
-	ps_rrotate(game, stack_b, "rrb");
+	ps_rrotate(game, stack_a, NULL);
+	ps_rrotate(game, stack_b, NULL);
 }

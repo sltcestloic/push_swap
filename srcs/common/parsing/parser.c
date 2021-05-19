@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 14:31:56 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/06 10:43:54 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 12:37:39 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	parse_normal_input(int ac, char **av, t_game *game)
 			i++;
 			continue ;
 		}
-		if ((ft_atoi(av[i]) == 0 && ft_strcmp("0", av[i]) != 0)
+		if ((ft_atoi(av[i]) == 0 && ft_strcmp("0", av[i]) != 0
+				&& ft_strcmp("-2147483648", av[i]) != 0)
 			|| (ft_atoi(av[i]) == -1 && ft_strcmp("-1", av[i]) != 0))
 			exit_error("Invalid argument.");
 		stack_push(game->stack_b, ft_atoi(av[i]));
@@ -59,7 +60,8 @@ void	parse_char_input(int ac, char **av, t_game *game)
 			i++;
 			continue ;
 		}
-		if ((ft_atoi(split[i]) == 0 && ft_strcmp("0", split[i]) != 0)
+		if ((ft_atoi(split[i]) == 0 && ft_strcmp("0", split[i]) != 0
+				&& ft_strcmp("-2147483648", split[i]) != 0)
 			|| (ft_atoi(split[i]) == -1 && ft_strcmp("-1", split[i]) != 0))
 			exit_error("Invalid argument.");
 		stack_push(game->stack_b, ft_atoi(split[i++]));
