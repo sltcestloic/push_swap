@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 14:31:56 by lbertran          #+#    #+#             */
-/*   Updated: 2021/05/19 12:47:36 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 12:53:09 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	parse_char_input(char **av, t_game *game)
 		if (ft_strcmp(itoa, split[i]) != 0
 			&& ft_strcmp("-2147483648", split[i]) != 0)
 			exit_error("Invalid argument.");
-		stack_push(game->stack_b, ft_atoi(split[i++]));
+		stack_push(game->stack_b, ft_atoi(split[i]));
 		free(itoa);
 	}
 	free_split(split);
